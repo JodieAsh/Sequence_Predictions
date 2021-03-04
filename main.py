@@ -110,15 +110,12 @@ def main(sequence, model):
     # Add position
     results['Position'] = range(1, len(results) + 1)
     # Convert / save to csv file
-    results.to_csv("results.csv")
+    results.to_csv("results.csv", index=False)
 
     return results
 
 
 if __name__ == '__main__':
-    """
-    Example of how to use the main method.
-    """
     parser = argparse.ArgumentParser()
     parser.add_argument('--sequence', '-s', type=str, required=True, help='Protein sequence to make predictions on.')
     parser.add_argument('--model', '-m', type=str, required=True, help='Name of model to run protein sequence through.')
