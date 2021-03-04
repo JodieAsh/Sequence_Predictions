@@ -118,7 +118,9 @@ def main(sequence, model):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--sequence', '-s', type=str, required=True, help='Protein sequence to make predictions on.')
-    parser.add_argument('--model', '-m', type=str, required=True, help='Name of model to run protein sequence through.')
+    parser.add_argument('--model', '-m', type=str, required=True, choices=['Onchocerca volvulus', 'Epstein-Barr Virus',
+                                                                           'Hepatitis C Virus'],
+                        help='Name of model to run protein sequence through.')
 
     args = parser.parse_args()
 
