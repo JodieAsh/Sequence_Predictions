@@ -112,21 +112,20 @@ def main(sequence, model):
     # Convert / save to csv file
     results.to_csv("results.csv")
 
-    return None
+    return results
 
 
-letters = "MFYYLGLLVMIVFILQAIAFLVLLERHFLGGSQCRVGPNKVGYCGVLQALFDGLKLLKKEQLLLCFSSWLSFLFMPICGFVLMVFFWFTLPYFFSFLSFE"
-main(sequence=letters, model="Onchocerca volvulus")
+if __name__ == '__main__':
+    """
+    Example of how to use the main method.
+    """
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--sequence', '-s', type=str, required=True, help='Protein sequence to make predictions on.')
+    parser.add_argument('--model', '-m', type=str, required=True, help='Name of model to run protein sequence through.')
+
+    args = parser.parse_args()
+
+    main(sequence=args.sequence, model=args.model)
 
 
-# if __name__ == '__main__':
-#     """
-#     Example of how to use the main method.
-#     """
-#     parser = argparse.ArgumentParser()
-#     parser.add_argument('--model', '-m', type=str, required=True, help='Name of model to run protein sequence through.')
-#     parser.add_argument('--sequence', '-s', type=str, help='Sequence to make predictions on.')
-#
-#     args = parser.parse_args()
-#
-#     main()
+# example_sequence = "MFYYLGLLVMIVFILQAIAFLVLLERHFLGGSQCRVGPNKVGYCGVLQALFDGLKLLKKEQLLLCFSSWLSFLFMPICGFVLMVFFWFTLPYFFSE"
